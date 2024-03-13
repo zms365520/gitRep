@@ -15,3 +15,9 @@ ll   查看
 		config目录重要    配置信息会放到这里
 		-rw  文件的意思
 		d    文件加的意思
+
+git add mingling.txt  将文件存到暂存区
+git commit -m "我提交的第一个文件mingling.txt" mingling.txt
+
+
+git status  查看状态
