@@ -9,5 +9,8 @@ package com.aks;
 public class Person {
     public static void main(String[] args) {
         System.out.println("haha");
+        System.out.println("ab");
+        System.out.println("cd");
+        System.out.println("ef");
     }
 }
