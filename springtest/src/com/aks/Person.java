@@ -12,5 +12,6 @@ public class Person {
         System.out.println("ab");
         System.out.println("cd");
         System.out.println("ef");
+        System.out.println("又来了");
     }
 }
