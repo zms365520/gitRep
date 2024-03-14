@@ -1,0 +1,51 @@
+git账号：
+zms365520
+zms365520
+
+git --version 
+clear
+git config --global user.name "zhangms"  
+git config --global user.email "949452420@qq.com"
+
+cd d:/
+cd gitRep/
+git init      初始化一个目录
+
+ll 查看
+ll -la  查看带隐藏的目录
+
+cd .git  进入git目录
+ll   查看   
+		config目录重要    配置信息会放到这里
+		-rw  文件的意思
+		d    文件加的意思
+
+git add mingling.txt  将文件存到暂存区
+git commit -m "我提交的第一个文件mingling.txt" mingling.txt
+
+
+git status  查看状态
+
+git log  --查看日志
+	查看日志的时候：
+		下一页：空格
+		上一页：b
+		到尾页了，显示END
+		推出：q
+git log
+git log --pretty=oneling
+git log --oneline
+日志的三种展示方式
+
+mkdir gitRep2
+cd gitRep2
+git init
+
+
+git remote -v  查看是否有别名
+git remote add gitRep https://github.com/zms365520/gitRep.git   设置一个别名
+git remote -v
+
+git push gitRep master   推送本地master分支的文件到远程仓库gitRep
+git clone https://github.com/zms365520/gitRep.git  克隆远程仓库的代码到本地
+

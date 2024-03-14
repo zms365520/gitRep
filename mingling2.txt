@@ -1,0 +1,17 @@
+git --version 
+clear
+git config --global user.name "zhangms"  
+git config --global user.email "949452420@qq.com"
+
+cd d:/
+cd gitRep/
+git init      初始化一个目录
+
+ll 查看
+ll -la  查看带隐藏的目录
+
+cd .git  进入git目录
+ll   查看   
+		config目录重要    配置信息会放到这里
+		-rw  文件的意思
+		d    文件加的意思
