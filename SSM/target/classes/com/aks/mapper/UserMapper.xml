@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aks.mapper.UserMapper">
+
+    <!--User findUser(String uname, String password);-->
+    <select id="findUser" resultType="user">
+        select * from user where cname =#{param1} and room =#{param2}
+    </select>
+
+    <!--findAllUser-->
+    <select id="findAllUser" resultType="user">
+        select * from user
+    </select>
+
+</mapper>
