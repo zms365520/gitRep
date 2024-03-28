@@ -1,6 +1,8 @@
 package com.aks.tank;
 
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -19,6 +21,8 @@ public class TankFrame extends Frame {
         setTitle("tank war");
         setVisible(true);
 
+        this.addKeyListener(new MyKeyListener());
+
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {//关闭窗口
@@ -35,5 +39,22 @@ public class TankFrame extends Frame {
         g.fillRect(x,y,50,50);
         x+=10;
         y+=10;
+    }
+
+    //键盘监听的处理类
+    class MyKeyListener extends KeyAdapter{
+        //键盘按下，会触发该方法
+        @Override
+        public void keyPressed(KeyEvent e) {
+            //super.keyPressed(e);
+            System.out.println("an xia");
+        }
+
+        //键盘被抬起，会触发该方法
+        @Override
+        public void keyReleased(KeyEvent e) {
+            //super.keyReleased(e);
+            System.out.println("tai qi");
+        }
     }
 }
