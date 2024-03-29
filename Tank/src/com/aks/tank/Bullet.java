@@ -20,13 +20,25 @@ public class Bullet {
     //子弹的方向
     private Dir dir;
 
-    public Bullet(int x, int y, Dir dir) {
+    //子弹是否活着（是否超出了屏幕）
+    public boolean live=true;
+
+    private TankFrame tf=null;
+
+    public Bullet(int x, int y, Dir dir,TankFrame tf) {
         this.x = x;
         this.y = y;
         this.dir = dir;
+        this.tf=tf;
     }
 
     public void paint(Graphics g) {
+
+        //子弹消亡了，从list集合中删除
+        if(!live){
+            tf.bullets.remove(this);
+        }
+
         Color c = g.getColor();
         g.setColor(Color.RED);
         g.fillOval(x, y, WIDTH, HEIGHT);
@@ -52,6 +64,11 @@ public class Bullet {
             case DOWN:
                 y += SPEED;
                 break;
+        }
+
+        //子弹飞出屏幕，则消亡
+        if(x<0 || x>TankFrame.GAME_WIDTH || y<0 || y>TankFrame.GAME_HEIGHT){
+            live=false;
         }
     }
 }

@@ -5,6 +5,8 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Auther: zms
@@ -15,7 +17,8 @@ import java.awt.event.WindowEvent;
 public class TankFrame extends Frame {
 
     Tank myTank = new Tank(200, 200, Dir.DOWN,this);
-    Bullet bullet = new Bullet(300, 300, Dir.DOWN);
+    //Bullet bullet = new Bullet(300, 300, Dir.DOWN);
+    List<Bullet> bullets=new ArrayList<>();
     static final int GAME_WIDTH = 800, GAME_HEIGHT = 600;
 
     public TankFrame() {
@@ -57,8 +60,31 @@ public class TankFrame extends Frame {
     //Frame窗口发生改变的时候会触发该方法
     @Override
     public void paint(Graphics g) {
+        //显示子弹的数量 文字  start
+        Color c=g.getColor();
+        g.setColor(Color.WHITE);
+        g.drawString("子弹的数量："+bullets.size(),10,60);
+        g.setColor(c);
+        //显示子弹的数量 文字  end
+
         myTank.paint(g);
-        bullet.paint(g);
+        //bullet.paint(g);//画子弹
+        //画出  子弹集合  start
+        /*
+        for (Bullet bullet : bullets) { //这种遍历方式，删除元素时会报错,所以使用下面的方式进行遍历
+            bullet.paint(g);
+        }
+        */
+
+        for (int i=0;i<bullets.size();i++) {
+            bullets.get(i).paint(g);
+        }
+        //画出  子弹集合  end
+        /*for(Iterator<Bullet> it=bullets.iterator();it.hasNext();){
+            Bullet b=it.next();
+            if(!b.live) it.remove();
+        }*/
+
     }
 
     //键盘监听的处理类
