@@ -44,6 +44,13 @@ public class TankFrame extends Frame {
 
     //键盘监听的处理类
     class MyKeyListener extends KeyAdapter {
+
+        //设置四个方向是否被按下  false表示未按下
+        boolean bL=false;
+        boolean bR=false;
+        boolean bU=false;
+        boolean bD=false;
+
         //键盘按下，会触发该方法
         @Override
         public void keyPressed(KeyEvent e) {
@@ -56,19 +63,23 @@ public class TankFrame extends Frame {
             switch (key) {
                 //左键被按下
                 case KeyEvent.VK_LEFT:
-                    x -= 10;
+                    //x -= 10;
+                    bL=true;
                     break;
                 //上键被按下
                 case KeyEvent.VK_UP:
-                    y -= 10;
+                    //y -= 10;
+                    bU=true;
                     break;
                 //右键被按下
                 case KeyEvent.VK_RIGHT:
-                    x += 10;
+                    //x += 10;
+                    bR=true;
                     break;
                 //下键被按下
                 case KeyEvent.VK_DOWN:
-                    y += 10;
+                    //y += 10;
+                    bD=true;
                     break;
                 default:
                     break;
@@ -79,7 +90,30 @@ public class TankFrame extends Frame {
         @Override
         public void keyReleased(KeyEvent e) {
             //super.keyReleased(e);
-            System.out.println("tai qi");
+            //System.out.println("tai qi");
+
+            //按键抬起，恢复原始状态 false：未按下
+            int key = e.getKeyCode();
+            switch (key) {
+                //左键被按下
+                case KeyEvent.VK_LEFT:
+                    bL=false;
+                    break;
+                //上键被按下
+                case KeyEvent.VK_UP:
+                    bU=false;
+                    break;
+                //右键被按下
+                case KeyEvent.VK_RIGHT:
+                    bR=false;
+                    break;
+                //下键被按下
+                case KeyEvent.VK_DOWN:
+                    bD=false;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
