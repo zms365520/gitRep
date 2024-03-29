@@ -14,7 +14,7 @@ import java.awt.event.WindowEvent;
  */
 public class TankFrame extends Frame {
 
-    Tank myTank=new Tank(200,200,Dir.DOWN);
+    Tank myTank = new Tank(200, 200, Dir.DOWN);
 
     public TankFrame() {
 
@@ -118,21 +118,27 @@ public class TankFrame extends Frame {
         }
 
         private void setMainTankDir() {
-            if (bL) {
-                //dir = Dir.LEFT;
-                myTank.setDir(Dir.LEFT);
-            }
-            if (bR) {
-                //dir = Dir.RIGHT;
-                myTank.setDir(Dir.RIGHT);
-            }
-            if (bU) {
-                //dir = Dir.UP;
-                myTank.setDir(Dir.UP);
-            }
-            if (bD) {
-                //dir = Dir.DOWN;
-                myTank.setDir(Dir.DOWN);
+            //四个方向按键都未按下，则设置移动状态为false
+            if (!bL && !bR && !bU && !bD) {
+                myTank.setMoving(false);
+            } else {
+                myTank.setMoving(true);
+                if (bL) {
+                    //dir = Dir.LEFT;
+                    myTank.setDir(Dir.LEFT);
+                }
+                if (bR) {
+                    //dir = Dir.RIGHT;
+                    myTank.setDir(Dir.RIGHT);
+                }
+                if (bU) {
+                    //dir = Dir.UP;
+                    myTank.setDir(Dir.UP);
+                }
+                if (bD) {
+                    //dir = Dir.DOWN;
+                    myTank.setDir(Dir.DOWN);
+                }
             }
         }
 
