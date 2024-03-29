@@ -37,8 +37,8 @@ public class TankFrame extends Frame {
     public void paint(Graphics g) {
         System.out.println("paint");
         g.fillRect(x,y,50,50);
-        x+=10;
-        y+=10;
+        //x+=10;
+        //y+=10;
     }
 
     //键盘监听的处理类
@@ -47,7 +47,9 @@ public class TankFrame extends Frame {
         @Override
         public void keyPressed(KeyEvent e) {
             //super.keyPressed(e);
-            System.out.println("an xia");
+            //System.out.println("an xia");
+            x+=20;
+            repaint();
         }
 
         //键盘被抬起，会触发该方法
