@@ -13,10 +13,11 @@ import java.awt.event.WindowEvent;
  * @version: 1.0
  */
 public class TankFrame extends Frame {
-    int x=200,y=200;
-    public TankFrame(){
+    int x = 200, y = 200;
 
-        setSize(800,600);
+    public TankFrame() {
+
+        setSize(800, 600);
         setResizable(false);//改变窗口大小 false
         setTitle("tank war");
         setVisible(true);
@@ -36,13 +37,13 @@ public class TankFrame extends Frame {
     @Override
     public void paint(Graphics g) {
         System.out.println("paint");
-        g.fillRect(x,y,50,50);
-        x+=10;
+        g.fillRect(x, y, 50, 50);
+        //x+=10;
         //y+=10;
     }
 
     //键盘监听的处理类
-    class MyKeyListener extends KeyAdapter{
+    class MyKeyListener extends KeyAdapter {
         //键盘按下，会触发该方法
         @Override
         public void keyPressed(KeyEvent e) {
@@ -50,6 +51,28 @@ public class TankFrame extends Frame {
             //System.out.println("an xia");
             //x+=20;
             //repaint();
+
+            int key = e.getKeyCode();
+            switch (key) {
+                //左键被按下
+                case KeyEvent.VK_LEFT:
+                    x -= 10;
+                    break;
+                //上键被按下
+                case KeyEvent.VK_UP:
+                    y -= 10;
+                    break;
+                //右键被按下
+                case KeyEvent.VK_RIGHT:
+                    x += 10;
+                    break;
+                //下键被按下
+                case KeyEvent.VK_DOWN:
+                    y += 10;
+                    break;
+                default:
+                    break;
+            }
         }
 
         //键盘被抬起，会触发该方法
