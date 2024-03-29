@@ -13,9 +13,8 @@ import java.awt.event.WindowEvent;
  * @version: 1.0
  */
 public class TankFrame extends Frame {
-    int x = 200, y = 200;
-    Dir dir = Dir.DOWN;
-    private static final int SPEED = 10;
+
+    Tank myTank=new Tank(200,200,Dir.DOWN);
 
     public TankFrame() {
 
@@ -38,25 +37,7 @@ public class TankFrame extends Frame {
     //Frame窗口发生改变的时候会触发该方法
     @Override
     public void paint(Graphics g) {
-        System.out.println("paint");
-        g.fillRect(x, y, 50, 50);
-        //x+=10;
-        //y+=10;
-
-        switch (dir) {
-            case LEFT:
-                x -= SPEED;
-                break;
-            case RIGHT:
-                x += SPEED;
-                break;
-            case UP:
-                y -= SPEED;
-                break;
-            case DOWN:
-                y += SPEED;
-                break;
-        }
+        myTank.paint(g);
 
     }
 
@@ -138,16 +119,20 @@ public class TankFrame extends Frame {
 
         private void setMainTankDir() {
             if (bL) {
-                dir = Dir.LEFT;
+                //dir = Dir.LEFT;
+                myTank.setDir(Dir.LEFT);
             }
             if (bR) {
-                dir = Dir.RIGHT;
+                //dir = Dir.RIGHT;
+                myTank.setDir(Dir.RIGHT);
             }
             if (bU) {
-                dir = Dir.UP;
+                //dir = Dir.UP;
+                myTank.setDir(Dir.UP);
             }
             if (bD) {
-                dir = Dir.DOWN;
+                //dir = Dir.DOWN;
+                myTank.setDir(Dir.DOWN);
             }
         }
 
