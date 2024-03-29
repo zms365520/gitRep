@@ -10,7 +10,7 @@ import java.awt.*;
 public class Tank {
     private int x, y;
     private Dir dir = Dir.DOWN;
-    private static final int SPEED = 10;
+    private static final int SPEED = 5;
 
     //坦克的状态  是否正在移动   false：静止状态
     private boolean moving=false;
