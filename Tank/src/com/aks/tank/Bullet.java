@@ -9,10 +9,10 @@ import java.awt.*;
  */
 public class Bullet {
     //子弹的速度
-    private static final int SPEED = 1;
+    private static final int SPEED = 5;
 
     //子弹的大小
-    private static int WIDTH = 5, HEIGHT = 5;
+    private static int WIDTH = 20, HEIGHT = 20;
 
     //子弹的位置
     private int x, y;
