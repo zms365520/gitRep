@@ -14,9 +14,9 @@ import java.awt.event.WindowEvent;
  */
 public class TankFrame extends Frame {
 
-    Tank myTank = new Tank(200, 200, Dir.DOWN);
-    Bullet bullet=new Bullet(300,300,Dir.DOWN);
-    static final int GAME_WIDTH=800,GAME_HEIGHT=600;
+    Tank myTank = new Tank(200, 200, Dir.DOWN,this);
+    Bullet bullet = new Bullet(300, 300, Dir.DOWN);
+    static final int GAME_WIDTH = 800, GAME_HEIGHT = 600;
 
     public TankFrame() {
 
@@ -36,19 +36,20 @@ public class TankFrame extends Frame {
     }
 
     //用双缓冲 解决画面闪烁现象 start
-    Image offScreenImage=null;
+    Image offScreenImage = null;
+
     @Override
     public void update(Graphics g) {
-        if(offScreenImage==null){
-            offScreenImage=this.createImage(GAME_WIDTH,GAME_HEIGHT);
+        if (offScreenImage == null) {
+            offScreenImage = this.createImage(GAME_WIDTH, GAME_HEIGHT);
         }
-        Graphics gOffScreen=offScreenImage.getGraphics();
-        Color c=gOffScreen.getColor();
+        Graphics gOffScreen = offScreenImage.getGraphics();
+        Color c = gOffScreen.getColor();
         gOffScreen.setColor(Color.BLACK);
-        gOffScreen.fillRect(0,0,GAME_WIDTH,GAME_HEIGHT);
+        gOffScreen.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
         gOffScreen.setColor(c);
         paint(gOffScreen);
-        g.drawImage(offScreenImage,0,0,null);
+        g.drawImage(offScreenImage, 0, 0, null);
     }
     //用双缓冲 解决画面闪烁现象 end
 
@@ -105,7 +106,7 @@ public class TankFrame extends Frame {
             setMainTankDir();
         }
 
-        //键盘被抬起，会触发该方法
+        //按键抬起，会触发该方法
         @Override
         public void keyReleased(KeyEvent e) {
             //super.keyReleased(e);
@@ -130,6 +131,12 @@ public class TankFrame extends Frame {
                 case KeyEvent.VK_DOWN:
                     bD = false;
                     break;
+
+                //空格按键抬起，发射一颗子弹
+                case KeyEvent.VK_SPACE://VK_CONTROL  ctrl按键
+                    myTank.fire();
+                    break;
+
                 default:
                     break;
             }

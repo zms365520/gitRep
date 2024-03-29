@@ -15,6 +15,9 @@ public class Tank {
     //坦克的状态  是否正在移动   false：静止状态
     private boolean moving=false;
 
+    //一个对象(Tank)持有另一个对象(TankFrame)的引用
+    private TankFrame tf=null;
+
     public boolean isMoving() {
         return moving;
     }
@@ -23,11 +26,12 @@ public class Tank {
         this.moving = moving;
     }
 
-    public Tank(int x, int y, Dir dir) {
+    public Tank(int x, int y, Dir dir,TankFrame tf) {
         super();
         this.x = x;
         this.y = y;
         this.dir = dir;
+        this.tf=tf;
     }
 
     public Dir getDir() {
@@ -66,5 +70,9 @@ public class Tank {
                 y += SPEED;
                 break;
         }
+    }
+
+    public void fire() {
+        tf.bullet=new Bullet(this.x,this.y,this.dir);
     }
 }
