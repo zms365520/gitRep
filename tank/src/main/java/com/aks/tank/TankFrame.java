@@ -20,4 +20,9 @@ public class TankFrame extends Frame {
             }
         });
     }
+
+    @Override
+    public void paint(Graphics g) {
+        g.fillRect(200,200,50,50);
+    }
 }
