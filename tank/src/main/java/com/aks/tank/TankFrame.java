@@ -29,6 +29,7 @@ public class TankFrame extends Frame {
     @Override
     public void paint(Graphics g) {
         g.fillRect(x,y,50,50);
+        x+=10;
     }
 
     //键盘的监听处理类
