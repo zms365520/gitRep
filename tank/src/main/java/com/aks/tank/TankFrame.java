@@ -5,6 +5,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class TankFrame extends Frame {
+    int x=200,y=200;//放开的初始位置
     public TankFrame(){
 
         setSize(800,600);//设置大小
@@ -23,6 +24,8 @@ public class TankFrame extends Frame {
 
     @Override
     public void paint(Graphics g) {
-        g.fillRect(200,200,50,50);
+        g.fillRect(x,y,50,50);
+        x+=10;
+        y+=10;
     }
 }
