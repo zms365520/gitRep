@@ -29,8 +29,6 @@ public class TankFrame extends Frame {
     @Override
     public void paint(Graphics g) {
         g.fillRect(x,y,50,50);
-        x+=10;
-        y+=10;
     }
 
     //键盘的监听处理类
@@ -39,7 +37,8 @@ public class TankFrame extends Frame {
         //键盘按键按下的时候触发该方法
         @Override
         public void keyPressed(KeyEvent e){
-
+            x+=20;
+            repaint();
         }
 
         //键盘按键按下之后抬起（松开）的时候触发该方法
