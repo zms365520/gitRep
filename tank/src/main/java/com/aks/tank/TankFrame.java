@@ -106,7 +106,7 @@ public class TankFrame extends Frame {
             if(bL) dir=Dir.LEFT;
             if(bU) dir=Dir.UP;
             if(bR) dir=Dir.RIGHT;
-            if(bD) dir=Dir.DOWN;//000
+            if(bD) dir=Dir.DOWN;//0000
         }
 
 
